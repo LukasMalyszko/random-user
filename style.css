@@ -1,0 +1,48 @@
+body{
+    background-color: antiquewhite;
+    font-family: sans-serif;
+    padding: 2em;
+}
+
+h2 {
+    color: cadetblue;
+    text-align: center;
+}
+
+.row {
+    display: flex;
+}
+.column {
+    flex: 50%;
+}
+
+#avatar-img {
+    margin: 0.3em;
+    border-radius: 5em ;
+}
+
+.user-profile {
+    margin: auto;
+    padding: 0.5em;
+    background-color: bisque;
+    min-width: 50%;
+    width: fit-content;
+    border-radius: 1em;
+    color: cadetblue;
+}
+
+#full-name {
+    font-size: large;
+    font-weight: bold;
+}
+
+#username {
+    font-size: 0.9em;
+}
+
+#user-details {
+    font-size: 0.8em;
+    margin-top: 1em;
+    padding-top: 1em;
+    border-top: 1px solid;
+}

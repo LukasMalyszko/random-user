@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        body{
+            background-color: antiquewhite;
+            font-family: sans-serif;
+            padding: 2em;
+        }
+
+        h2 {
+            color: cadetblue;
+            text-align: center;
+        }
+
+        .row {
+            display: flex;
+        }
+        .column {
+            flex: 50%;
+        }
+        
+        #avatar-img {
+            margin: 0.3em;
+            border-radius: 5em ;
+        }
+
+        .user-profile {
+            margin: auto;
+            padding: 0.5em;
+            background-color: bisque;
+            min-width: 50%;
+            width: fit-content;
+            border-radius: 1em;
+            color: cadetblue;
+        }
+
+        #full-name {
+            font-size: large;
+            font-weight: bold;
+        }
+
+        #username {
+            font-size: 0.9em;
+        }
+
+        #user-details {
+            font-size: 0.8em;
+            margin-top: 1em;
+            padding-top: 1em;
+            border-top: 1px solid;
+        }
+    </style>
+</head>
+<body>
+    
+    <h2>Random user</h2>
+    <div class="user-profile">
+        <div class="row">
+            <div class="column">
+                <img id="avatar-img" src="" alt="">
+            </div>
+            <div class="column">
+                <div id="full-name">Fullname</div>
+                <div id="username">Username</div>
+                <div id="user-details">
+                    <div id="email">Email</div>
+                    <div id="country">Country</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        window.onload = function(){
+            fetch("https://randomuser.me/api")
+            .then(response => response.json())
+            .then(data => dataReady(data));
+        }
+
+        function dataReady (data) {
+            console.log(data);
+            let result = data.results[0];
+            let fullname = result.name.title + " " + result.name.first + " " + result.name.last;
+            document.getElementById("full-name").innerHTML = fullname;
+
+            let img = result.picture.large;
+            document.getElementById("avatar-img").src = img;
+
+            let username = result.login.username;
+            document.getElementById("username").innerHTML = username;
+
+            let email = result.email;
+            document.getElementById("email").innerHTML = email;
+
+            let country = result.location.country;
+            document.getElementById("country").innerHTML = country;
+        }
+    </script>
+</body>
+</html>
